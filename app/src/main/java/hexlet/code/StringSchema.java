@@ -6,18 +6,18 @@ import java.util.function.Predicate;
 
 public class StringSchema {
 
-    //private boolean requriedStatus = false;
+    private boolean requriedStatus = false;
     private final List<Predicate> filters = new ArrayList<>();
 
     public StringSchema required() {
-        //requriedStatus = true;
-        Predicate<Object> requiredIsOn = s -> (s instanceof String && !"".equals(s));
-        filters.add(requiredIsOn);
+        requriedStatus = true;
+//        Predicate<Object> requiredIsOn = s -> (!"".equals(s));
+//        filters.add(requiredIsOn);
         return this;
     }
 
     public StringSchema minLength(int stringLength) {
-        Predicate<Integer> moreThan = i -> (i >= stringLength);
+        Predicate<String> moreThan = i -> (i.length() >= stringLength);
         filters.add(moreThan);
         return this;
     }
@@ -29,15 +29,15 @@ public class StringSchema {
     }
 
     public boolean isValid(Object lineToCheck) {
-//        if (!requriedStatus && lineToCheck == null) {
-//            return true;
-//        }
-//        if (!(lineToCheck instanceof String)) {
-//            return false;
-//        }
-//        if (requriedStatus && ((String) lineToCheck).isEmpty()) {
-//            return false;
-//        }
+        if (!requriedStatus && lineToCheck == null) {
+            return true;
+        }
+        if (!(lineToCheck instanceof String)) {
+            return false;
+        }
+        if (requriedStatus && ((String) lineToCheck).isEmpty()) {
+            return false;
+        }
         for (Predicate filter : filters) {
             if (!filter.test(lineToCheck)) {
                 return false;
