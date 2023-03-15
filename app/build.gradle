@@ -32,7 +32,6 @@ jacocoTestReport {
 }
 
 application {
-    mainClass = 'hexlet.code.App'
 }
 
 compileJava {
