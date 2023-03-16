@@ -1,4 +1,4 @@
-package hexlet.code;
+package hexlet.code.schemas;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,9 +11,9 @@ public class BaseSchema {
         filters.add(p);
     }
 
-    public boolean isValid(Object lineToCheck) {
+    public boolean isValid(Object obj) {
         for (Predicate filter : filters) {
-            if (!filter.test(lineToCheck)) {
+            if (!filter.test(obj)) {
                 return false;
             }
         }

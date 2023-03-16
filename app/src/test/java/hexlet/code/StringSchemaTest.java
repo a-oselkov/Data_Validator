@@ -1,13 +1,14 @@
 package hexlet.code;
 
+import hexlet.code.schemas.StringSchema;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class StringSchemaTest {
-    Validator v = new Validator();
-    StringSchema schema = v.string();
+    private final Validator v = new Validator();
+    private final StringSchema schema = v.string();
 
     @Test
     void requiredTest() {

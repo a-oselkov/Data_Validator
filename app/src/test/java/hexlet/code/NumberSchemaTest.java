@@ -1,16 +1,18 @@
 package hexlet.code;
 
+import hexlet.code.schemas.NumberSchema;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class NumberSchemaTest {
-    Validator v = new Validator();
-    NumberSchema schema = v.number();
+    private final Validator v = new Validator();
+    private final NumberSchema schema = v.number();
 
     @Test
     void requiredTest() {
+        assertTrue(schema.isValid("5"));
         assertTrue(schema.isValid(null));
         assertTrue(schema.positive().isValid(null));
 
