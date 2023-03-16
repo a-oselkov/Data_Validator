@@ -7,17 +7,17 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class StringSchemaTest {
     Validator v = new Validator();
-
     StringSchema schema = v.string();
 
     @Test
     void requiredTest() {
-        assertFalse(schema.isValid(1));
+        assertTrue(schema.isValid(1));
         assertTrue(schema.isValid(""));
         assertTrue(schema.isValid(null));
 
         schema.required();
 
+        assertFalse(schema.isValid(1));
         assertFalse(schema.isValid(""));
         assertFalse(schema.isValid(null));
     }
@@ -33,10 +33,13 @@ class StringSchemaTest {
 
     @Test
     void containsTest() {
-        schema.contains("wh");
+        schema.contains("what");
         assertTrue(schema.isValid("what does the fox say"));
 
         schema.contains("Q");
+        assertFalse(schema.isValid("what does the fox say"));
+
+        schema.contains("what");
         assertFalse(schema.isValid("what does the fox say"));
     }
 
