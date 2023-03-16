@@ -1,6 +1,6 @@
 package hexlet.code;
 
-public class NumberSchema extends BaseSchema{
+public class NumberSchema extends BaseSchema {
 
     public NumberSchema required() {
         addFilter(x -> (x instanceof Integer));

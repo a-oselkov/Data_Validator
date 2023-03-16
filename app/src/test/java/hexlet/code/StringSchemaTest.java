@@ -45,7 +45,8 @@ class StringSchemaTest {
 
     @Test
     void isValidTest() {
-        assertTrue(schema.required()
+        assertTrue(schema
+                .required()
                 .minLength(10)
                 .contains("what")
                 .isValid("what does the fox say"));

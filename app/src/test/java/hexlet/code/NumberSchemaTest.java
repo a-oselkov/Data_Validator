@@ -39,7 +39,8 @@ class NumberSchemaTest {
 
     @Test
     void isValid() {
-        assertTrue(schema.required()
+        assertTrue(schema
+                .required()
                 .positive()
                 .range(5, 10)
                 .isValid(6));
