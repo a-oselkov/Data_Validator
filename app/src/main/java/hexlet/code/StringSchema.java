@@ -1,38 +1,20 @@
 package hexlet.code;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.Predicate;
-
-public class StringSchema {
-
-    private final List<Predicate> filters = new ArrayList<>();
+public class StringSchema extends BaseSchema {
 
     public StringSchema required() {
-        Predicate<Object> requiredIsOn = x -> (x instanceof String && !"".equals(x));
-        filters.add(requiredIsOn);
+        addFilter(x -> (x instanceof String && !"".equals(x)));
         return this;
     }
 
     public StringSchema minLength(int stringLength) {
-        Predicate<String> moreThan = x -> (x.length() >= stringLength);
-        filters.add(moreThan);
+        addFilter(x -> (x.toString().length() >= stringLength));
         return this;
     }
 
     public StringSchema contains(String part) {
-        Predicate<String> isContains = x -> x.contains(part);
-        filters.add(isContains);
+        addFilter(x -> x.toString().contains(part));
         return this;
-    }
-
-    public boolean isValid(Object lineToCheck) {
-        for (Predicate filter : filters) {
-            if (!filter.test(lineToCheck)) {
-                return false;
-            }
-        }
-        return true;
     }
 }
 

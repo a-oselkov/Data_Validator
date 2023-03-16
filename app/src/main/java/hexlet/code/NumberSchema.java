@@ -1,36 +1,19 @@
 package hexlet.code;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.Predicate;
-
-public class NumberSchema {
-    private final List<Predicate> filters = new ArrayList<>();
+public class NumberSchema extends BaseSchema{
 
     public NumberSchema required() {
-        Predicate<Object> requiredIsOn = x -> (x instanceof Integer);
-        filters.add(requiredIsOn);
+        addFilter(x -> (x instanceof Integer));
         return this;
     }
 
     public NumberSchema positive() {
-        Predicate<Object> isPositive = x -> (x == null || (x instanceof Integer && (Integer) x > 0));
-        filters.add(isPositive);
+        addFilter(x -> (x == null || (x instanceof Integer && (Integer) x > 0)));
         return this;
     }
 
     public NumberSchema range(int begin, int end) {
-        Predicate<Integer> inRange = x -> (x >= begin && x <= end);
-        filters.add(inRange);
+        addFilter(x -> ((Integer) x >= begin && (Integer) x <= end));
         return this;
-    }
-
-    public boolean isValid(Object numberToCheck) {
-        for (Predicate filter : filters) {
-            if (!filter.test(numberToCheck)) {
-                return false;
-            }
-        }
-        return true;
     }
 }
