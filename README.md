@@ -5,13 +5,13 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/7b897c1d4ed0d14acd77/test_coverage)](https://codeclimate.com/github/a-oselkov/java-project-78/test_coverage)
 
 
-### Data validator:
+## Data validator:
 
 "Data validator" is a library with which you can check the correctness of data, for example, the data of forms filled in by users.
 Implemented the ability to check strings, numbers and Map type objects.
 
 
-#### Validation of strings:
+### Validation of strings:
 
 - required() - any non-empty string.
 - minLength(number) - the string is equal to or longer than the specified number.
@@ -43,7 +43,7 @@ schema.isValid("what does the fox say"); // false - contains("whatthe") check ha
 ```
 
 
-#### Validation of numbers:
+### Validation of numbers:
 
 - required() – any number including zero.
 - positive() is a positive number.
@@ -74,7 +74,7 @@ schema.isValid(11); // false
 ```
 
 
-#### Validation of Map type objects:
+### Validation of Map type objects:
 
 - required() – требуется тип данных Map.
 - sizeof(number) – количество пар ключ-значений в объекте Map должно быть равно заданному.
@@ -104,7 +104,7 @@ data.put("key2", "value2");
 schema.isValid(data); // true
 ```
 
-#### Nested validation:
+### Nested validation:
 
 - shape(schemas) - allows you to describe validation for Map object values by keys.
 
