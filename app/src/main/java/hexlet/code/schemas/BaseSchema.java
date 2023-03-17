@@ -7,16 +7,11 @@ import java.util.function.Predicate;
 public class BaseSchema {
     private final List<Predicate> filters = new ArrayList<>();
 
-    public final void addFilter(Predicate<Object> p) {
-        filters.add(p);
+    public final void addFilter(Predicate<Object> filter) {
+        filters.add(filter);
     }
 
-    public final boolean isValid(Object obj) {
-        for (Predicate filter : filters) {
-            if (!filter.test(obj)) {
-                return false;
-            }
-        }
-        return true;
+    public final boolean isValid(Object schema) {
+        return filters.stream().allMatch(filter -> filter.test(schema));
     }
 }
