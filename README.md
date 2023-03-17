@@ -3,16 +3,14 @@
 ![Java CI](https://github.com/a-oselkov/java-project-78/workflows/Java%20CI/badge.svg)
 [![Maintainability](https://api.codeclimate.com/v1/badges/7b897c1d4ed0d14acd77/maintainability)](https://codeclimate.com/github/a-oselkov/java-project-78/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/7b897c1d4ed0d14acd77/test_coverage)](https://codeclimate.com/github/a-oselkov/java-project-78/test_coverage)
-
-
-
+ 
+ 
 ## Data validator:
 
 "Data validator" is a library with which you can check the correctness of data, for example, the data of forms filled in by users.
 Implemented the ability to check strings, numbers and Map type objects.
-
-
-
+ 
+ 
 ### Validation of strings:
 
 - required() - any non-empty string.
@@ -43,9 +41,8 @@ schema.contains("whatthe").isValid("what does the fox say"); // false
 
 schema.isValid("what does the fox say"); // false - contains("whatthe") check has been added
 ```
-
-
-
+ 
+ 
 ### Validation of numbers:
 
 - required() – any number including zero.
@@ -75,9 +72,8 @@ schema.range(5, 10);
 schema.isValid(5); // true
 schema.isValid(11); // false
 ```
-
-
-
+ 
+ 
 ### Validation of Map type objects:
 
 - required() – требуется тип данных Map.
@@ -107,9 +103,8 @@ schema.isValid(data);  // false
 data.put("key2", "value2");
 schema.isValid(data); // true
 ```
-
-
-
+ 
+ 
 ### Nested validation:
 
 - shape(schemas) - allows you to describe validation for Map object values by keys.
