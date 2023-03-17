@@ -39,7 +39,7 @@ schema.isValid("what does the fox say"); // true
 schema.contains("what").isValid("what does the fox say"); // true
 schema.contains("whatthe").isValid("what does the fox say"); // false
 
-schema.isValid("what does the fox say"); // false - since another contains("whatthe") check has been added
+schema.isValid("what does the fox say"); // false - another contains("whatthe") check has been added
 ```
 
 
@@ -122,12 +122,14 @@ schema.isValid(human1); // true
 Map<String, Object> human2 = new HashMap<>();
 human2.put("name", "Maya");
 human2.put("age", null);
-schema.isValid(human2); // true - the required() method was not applied, so null is considered valid.
+schema.isValid(human2); // true - the required() method was not applied, 
+                                  null is considered valid
 
 Map<String, Object> human3 = new HashMap<>();
 human3.put("name", "");
 human3.put("age", null);
-schema.isValid(human3); // false - the required() method is defined for the "name" key, so an empty string is not considered valid
+schema.isValid(human3); // false - the required() method is defined for the "name" key, 
+                                   so an empty string is not considered valid
 
 Map<String, Object> human4 = new HashMap<>();
 human4.put("name", "Valya");
