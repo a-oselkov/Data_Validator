@@ -50,12 +50,12 @@ class MapSchemaTest {
 
     @Test
     void isShapeValidTest() {
-        Validator v1 = new Validator();
+
         MapSchema schema1 = v.map();
 
         Map<String, BaseSchema> schemas = new HashMap<>();
-        schemas.put("name", v1.string().required());
-        schemas.put("age", v1.number().positive());
+        schemas.put("name", v.string().required());
+        schemas.put("age", v.number().positive());
 
         schema1.shape(schemas);
 

@@ -7,7 +7,7 @@ import java.util.function.Predicate;
 public class BaseSchema {
     private final List<Predicate> filters = new ArrayList<>();
 
-    protected final void addFilter(Predicate<Object> p) {
+    public final void addFilter(Predicate<Object> p) {
         filters.add(p);
     }
 

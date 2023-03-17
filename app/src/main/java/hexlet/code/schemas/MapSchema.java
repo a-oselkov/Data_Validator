@@ -17,14 +17,14 @@ public class MapSchema extends BaseSchema {
     }
 
     public final MapSchema shape(Map<String, BaseSchema> map) {
-        addFilter(e -> isShapeValid(map, (Map<String, Object>) e));
+        addFilter(e -> isShapedValid(map, (Map<String, Object>) e));
         return this;
     }
 
-    private boolean isShapeValid(Map<String, BaseSchema> filterMap, Map<String, Object> filtredMap) {
-        for (Map.Entry<String, BaseSchema> filter : filterMap.entrySet()) {
-            Object data = filtredMap.get(filter.getKey());
-            if (!filter.getValue().isValid(data)) {
+    private boolean isShapedValid(Map<String, BaseSchema> shapeMap, Map<String, Object> shapedMap) {
+        for (Map.Entry<String, BaseSchema> shape : shapeMap.entrySet()) {
+            Object data = shapedMap.get(shape.getKey());
+            if (!shape.getValue().isValid(data)) {
                 return false;
             }
         }
