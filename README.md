@@ -124,13 +124,13 @@ Map<String, Object> human2 = new HashMap<>();
 human2.put("name", "Maya");
 human2.put("age", null);
 schema.isValid(human2); // true - the required() method was not applied, 
-                                  null is considered valid
+                        //        null is considered valid
 
 Map<String, Object> human3 = new HashMap<>();
 human3.put("name", "");
 human3.put("age", null);
 schema.isValid(human3); // false - the required() method is defined fоr the "name" key, 
-                                   so an empty string is not considered valid
+                        //         so an empty string is not considered valid
 
 Map<String, Object> human4 = new HashMap<>();
 human4.put("name", "Valya");
