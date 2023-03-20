@@ -23,8 +23,7 @@ public class MapSchema extends BaseSchema {
 
     private boolean isShapedMapValid(Map<String, BaseSchema> shapeMap, Map<String, Object> shapedMap) {
         return shapeMap.entrySet().stream()
-                .map(shape -> shape.getValue().isValid(shapedMap.get(shape.getKey())))
-                .reduce(Boolean.TRUE, Boolean::logicalAnd);
+                .allMatch(shape -> shape.getValue().isValid(shapedMap.get(shape.getKey())));
     }
 }
 
