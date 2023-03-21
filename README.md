@@ -37,9 +37,10 @@ schema.isValid("5"); // false
 schema.isValid("what does the fox say"); // true
 
 schema.contains("what").isValid("what does the fox say"); // true
-schema.contains("whatthe").isValid("what does the fox say"); // false
+schema.contains("?").isValid("what does the fox say"); // false
 
-schema.isValid("what does the fox say"); // false - contains("whatthe") check has been added
+schema.isValid("what does the fox say"); // false - contains("?") check has been added
+schema.isValid("what does the fox say?"); // true
 ```
  
  

@@ -8,7 +8,7 @@ public class NumberSchema extends BaseSchema {
     }
 
     public final NumberSchema positive() {
-        addFilter(e -> e == null || (e instanceof Integer && (int) e > 0));
+        addFilter(e -> e == null || e instanceof Integer && (int) e > 0);
         return this;
     }
 
