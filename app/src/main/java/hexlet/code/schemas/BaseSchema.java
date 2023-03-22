@@ -19,9 +19,9 @@ public abstract class BaseSchema {
     public abstract BaseSchema required();
 
     public final boolean isValid(Object schema) {
-        Predicate validate = checks.get("required");
+        Predicate required = checks.get("required");
 
-        if (!validate.test(schema) && !requiredEnable) {
+        if (!required.test(schema) && !requiredEnable) {
             return true;
         }
 
