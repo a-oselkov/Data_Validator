@@ -1,19 +1,30 @@
 package hexlet.code.schemas;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.function.Predicate;
 
 public abstract class BaseSchema {
-    private final List<Predicate> filters = new ArrayList<>();
+    private final Map<String, Predicate> checks = new HashMap<>();
+    private boolean requiredEnable = false;
 
-    public final void addFilter(Predicate<Object> filter) {
-        filters.add(filter);
+    public final void addCheck(String name, Predicate check) {
+        checks.put(name, check);
+    }
+
+    public final void setRequiredStatus() {
+        requiredEnable = true;
     }
 
     public abstract BaseSchema required();
 
     public final boolean isValid(Object schema) {
-        return filters.stream().allMatch(filter -> filter.test(schema));
+        Predicate validate = checks.get("required");
+
+        if (!validate.test(schema) && !requiredEnable) {
+            return true;
+        }
+
+        return checks.entrySet().stream().allMatch(check -> check.getValue().test(schema));
     }
 }
