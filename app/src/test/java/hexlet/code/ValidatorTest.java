@@ -54,7 +54,7 @@ public class ValidatorTest {
     }
 
     @Test
-    void stringSchemaFluentTest() {
+    void stringSchemaAggregateTest() {
         StringSchema schema = v.string();
 
         assertTrue(schema
@@ -101,7 +101,7 @@ public class ValidatorTest {
     }
 
     @Test
-    void numberSchemaFluentTest() {
+    void numberSchemaAggregateTest() {
         NumberSchema schema = v.number();
 
         assertTrue(schema
@@ -139,7 +139,7 @@ public class ValidatorTest {
     }
 
     @Test
-    void mapSchemaFluentTest() {
+    void mapSchemaAggregateTest() {
         MapSchema schema = v.map();
 
         Map<String, String> data = new HashMap<>();
