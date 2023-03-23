@@ -12,8 +12,8 @@ public abstract class BaseSchema {
         checks.put(name, check);
     }
 
-    public final void setRequiredStatus() {
-        requiredEnable = true;
+    public final void setRequiredStatus(boolean b) {
+        requiredEnable = b;
     }
 
     public abstract BaseSchema required();
@@ -24,7 +24,6 @@ public abstract class BaseSchema {
         if (!required.test(schema) && !requiredEnable) {
             return true;
         }
-
         return checks.entrySet().stream().allMatch(check -> check.getValue().test(schema));
     }
 }
