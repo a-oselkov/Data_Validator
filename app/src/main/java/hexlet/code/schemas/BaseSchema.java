@@ -24,6 +24,6 @@ public abstract class BaseSchema {
         if (!required.test(schema) && !requiredEnable) {
             return true;
         }
-        return checks.entrySet().stream().allMatch(check -> check.getValue().test(schema));
+        return checks.values().stream().allMatch(check -> check.test(schema));
     }
 }
