@@ -3,7 +3,7 @@ package hexlet.code.schemas;
 public class NumberSchema extends BaseSchema {
 
     public NumberSchema() {
-        addCheck("required", e -> e instanceof Integer);
+        addValidation("required", v -> v instanceof Integer);
     }
 
     public final NumberSchema required() {
@@ -12,12 +12,12 @@ public class NumberSchema extends BaseSchema {
     }
 
     public final NumberSchema positive() {
-        addCheck("positive", e -> e == null || e instanceof Integer && (int) e > 0);
+        addValidation("positive", v -> v == null || v instanceof Integer && (int) v > 0);
         return this;
     }
 
     public final NumberSchema range(int begin, int end) {
-        addCheck("range", e -> (int) e >= begin && (int) e <= end);
+        addValidation("range", v -> (int) v >= begin && (int) v <= end);
         return this;
     }
 }

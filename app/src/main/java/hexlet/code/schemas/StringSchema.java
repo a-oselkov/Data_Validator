@@ -3,7 +3,7 @@ package hexlet.code.schemas;
 public class StringSchema extends BaseSchema {
 
     public StringSchema() {
-        addCheck("required", e -> e instanceof String && !e.equals(""));
+        addValidation("required", v -> v instanceof String && !v.equals(""));
     }
 
     public final StringSchema required() {
@@ -12,12 +12,12 @@ public class StringSchema extends BaseSchema {
     }
 
     public final StringSchema minLength(int stringLength) {
-        addCheck("minLength", e -> e.toString().length() >= stringLength);
+        addValidation("minLength", v -> v.toString().length() >= stringLength);
         return this;
     }
 
     public final StringSchema contains(String substring) {
-        addCheck("contains", e -> e.toString().contains(substring));
+        addValidation("contains", v -> v.toString().contains(substring));
         return this;
     }
 }

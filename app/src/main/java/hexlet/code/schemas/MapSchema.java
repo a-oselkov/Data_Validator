@@ -7,7 +7,7 @@ import java.util.Map;
 public class MapSchema extends BaseSchema {
 
     public MapSchema() {
-        addCheck("required", e -> e instanceof Map);
+        addValidation("required", v -> v instanceof Map);
     }
 
     public final MapSchema required() {
@@ -17,12 +17,12 @@ public class MapSchema extends BaseSchema {
 
     public final MapSchema sizeof(int size) {
         ObjectMapper mapper = new ObjectMapper();
-        addCheck("sizeof", e -> mapper.convertValue(e, Map.class).size() == size);
+        addValidation("sizeof", v -> mapper.convertValue(v, Map.class).size() == size);
         return this;
     }
 
     public final MapSchema shape(Map<String, BaseSchema> map) {
-        addCheck("shape", e -> isShapedMapValid(map, (Map) e));
+        addValidation("shape", v -> isShapedMapValid(map, (Map) v));
         return this;
     }
 
