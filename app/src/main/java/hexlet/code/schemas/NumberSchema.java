@@ -7,7 +7,7 @@ public class NumberSchema extends BaseSchema {
     }
 
     public final NumberSchema required() {
-        setRequiredStatus(true);
+        requiredEnable();
         return this;
     }
 

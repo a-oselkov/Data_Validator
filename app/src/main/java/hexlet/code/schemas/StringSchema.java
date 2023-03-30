@@ -7,7 +7,7 @@ public class StringSchema extends BaseSchema {
     }
 
     public final StringSchema required() {
-        setRequiredStatus(true);
+        requiredEnable();
         return this;
     }
 
