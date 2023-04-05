@@ -8,12 +8,14 @@ public class BaseSchema {
     private final Map<String, Predicate> validations = new HashMap<>();
     private boolean isRequired = false;
 
+
     public final void addValidation(String name, Predicate validation) {
         validations.put(name, validation);
     }
 
-    public final void requiredEnable() {
+    public BaseSchema required() {
         isRequired = true;
+        return this;
     }
 
     public final boolean isValid(Object data) {
