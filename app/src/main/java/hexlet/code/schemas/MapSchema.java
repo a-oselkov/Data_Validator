@@ -11,7 +11,7 @@ public class MapSchema extends BaseSchema {
     }
 
     public final MapSchema required() {
-        super.required();
+        requiredEnable();
         return this;
     }
 

@@ -13,9 +13,8 @@ public class BaseSchema {
         validations.put(name, validation);
     }
 
-    protected BaseSchema required() {
+    protected void requiredEnable() {
         isRequired = true;
-        return this;
     }
 
     public final boolean isValid(Object data) {
