@@ -5,7 +5,7 @@ public class StringSchema extends BaseSchema {
     public StringSchema() {
         addValidation("required", v -> v instanceof String && !v.equals(""));
     }
-    
+
     public final StringSchema required() {
         super.required();
         return this;
