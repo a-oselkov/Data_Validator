@@ -13,7 +13,7 @@ public class BaseSchema {
         validations.put(name, validation);
     }
 
-    public BaseSchema required() {
+    protected BaseSchema required() {
         isRequired = true;
         return this;
     }
