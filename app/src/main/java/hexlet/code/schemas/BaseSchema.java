@@ -13,13 +13,13 @@ public class BaseSchema {
         validations.put(name, validation);
     }
 
-    protected void requiredEnable() {
+    public final void requiredEnable() {
         isRequired = true;
     }
 
     public final boolean isValid(Object data) {
         if (!isRequired) {
-            Predicate validation = validations.get("required");
+            final Predicate validation = validations.get("required");
             if (!validation.test(data)) {
                 return true;
             }
