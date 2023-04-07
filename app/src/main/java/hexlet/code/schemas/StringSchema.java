@@ -1,9 +1,12 @@
 package hexlet.code.schemas;
 
 public class StringSchema extends BaseSchema {
+    final String required = "required";
+    final String minLength = "minLength";
+    final String contains = "contains";
 
     public StringSchema() {
-        addValidation("required", v -> v instanceof String && !v.equals(""));
+        addValidation(required, v -> v instanceof String && !v.equals(""));
     }
 
     public final StringSchema required() {
@@ -12,12 +15,12 @@ public class StringSchema extends BaseSchema {
     }
 
     public final StringSchema minLength(int stringLength) {
-        addValidation("minLength", v -> v.toString().length() >= stringLength);
+        addValidation(minLength, v -> v.toString().length() >= stringLength);
         return this;
     }
 
     public final StringSchema contains(String substring) {
-        addValidation("contains", v -> v.toString().contains(substring));
+        addValidation(contains, v -> v.toString().contains(substring));
         return this;
     }
 }
