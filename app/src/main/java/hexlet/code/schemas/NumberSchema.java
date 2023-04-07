@@ -1,9 +1,9 @@
 package hexlet.code.schemas;
 
 public class NumberSchema extends BaseSchema {
-    final String required = "required";
-    final String positive = "positive";
-    final String range = "range";
+    private final String required = "required";
+    private final String positive = "positive";
+    private final String range = "range";
 
     public NumberSchema() {
         addValidation(required, v -> v instanceof Integer);

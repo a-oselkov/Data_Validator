@@ -1,9 +1,9 @@
 package hexlet.code.schemas;
 
 public class StringSchema extends BaseSchema {
-    final String required = "required";
-    final String minLength = "minLength";
-    final String contains = "contains";
+    private final String required = "required";
+    private final String minLength = "minLength";
+    private final String contains = "contains";
 
     public StringSchema() {
         addValidation(required, v -> v instanceof String && !v.equals(""));
