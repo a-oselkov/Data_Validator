@@ -5,9 +5,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.Map;
 
 public class MapSchema extends BaseSchema {
-    final String required = "required";
-    final String sizeof = "sizeof";
-    final String shape = "shape";
+    private final String required = "required";
+    private final String sizeof = "sizeof";
+    private final String shape = "shape";
 
     public MapSchema() {
         addValidation(required, v -> v instanceof Map);
