@@ -6,7 +6,7 @@ public class NumberSchema extends BaseSchema {
     private final String range = "range";
 
     public NumberSchema() {
-        addValidation(required, v -> v instanceof Integer);
+        addValidation(required, value -> value instanceof Integer);
     }
 
     public final NumberSchema required() {
@@ -15,12 +15,12 @@ public class NumberSchema extends BaseSchema {
     }
 
     public final NumberSchema positive() {
-        addValidation(positive, v -> v == null || v instanceof Integer && (int) v > 0);
+        addValidation(positive, value -> value == null || value instanceof Integer && (int) value > 0);
         return this;
     }
 
     public final NumberSchema range(int begin, int end) {
-        addValidation(range, v -> (int) v >= begin && (int) v <= end);
+        addValidation(range, value -> (int) value >= begin && (int) value <= end);
         return this;
     }
 }

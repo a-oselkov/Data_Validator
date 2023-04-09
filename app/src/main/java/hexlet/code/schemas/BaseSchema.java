@@ -25,6 +25,6 @@ public class BaseSchema {
                 return true;
             }
         }
-        return validations.values().stream().allMatch(v -> v.test(data));
+        return validations.values().stream().allMatch(value -> value.test(data));
     }
 }

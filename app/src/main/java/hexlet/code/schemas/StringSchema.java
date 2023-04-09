@@ -6,7 +6,7 @@ public class StringSchema extends BaseSchema {
     private final String contains = "contains";
 
     public StringSchema() {
-        addValidation(required, v -> v instanceof String && !v.equals(""));
+        addValidation(required, value -> value instanceof String && !value.equals(""));
     }
 
     public final StringSchema required() {
@@ -15,12 +15,12 @@ public class StringSchema extends BaseSchema {
     }
 
     public final StringSchema minLength(int stringLength) {
-        addValidation(minLength, v -> v.toString().length() >= stringLength);
+        addValidation(minLength, value -> value.toString().length() >= stringLength);
         return this;
     }
 
     public final StringSchema contains(String substring) {
-        addValidation(contains, v -> v.toString().contains(substring));
+        addValidation(contains, value -> value.toString().contains(substring));
         return this;
     }
 }

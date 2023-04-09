@@ -10,7 +10,7 @@ public class MapSchema extends BaseSchema {
     private final String shape = "shape";
 
     public MapSchema() {
-        addValidation(required, v -> v instanceof Map);
+        addValidation(required, value -> value instanceof Map);
     }
 
     public final MapSchema required() {
@@ -20,18 +20,18 @@ public class MapSchema extends BaseSchema {
 
     public final MapSchema sizeof(int size) {
         ObjectMapper mapper = new ObjectMapper();
-        addValidation(sizeof, v -> mapper.convertValue(v, Map.class).size() == size);
+        addValidation(sizeof, value -> mapper.convertValue(value, Map.class).size() == size);
         return this;
     }
 
     public final MapSchema shape(Map<String, BaseSchema> map) {
-        addValidation(shape, v -> isShapedMapValid(map, (Map) v));
+        addValidation(shape, value -> isShapedMapValid(map, (Map) value));
         return this;
     }
 
     private boolean isShapedMapValid(Map<String, BaseSchema> shapeMap, Map<String, Object> shapedMap) {
         return shapeMap.entrySet().stream()
-                .allMatch(m -> m.getValue().isValid(shapedMap.get(m.getKey())));
+                .allMatch(map -> map.getValue().isValid(shapedMap.get(map.getKey())));
     }
 }
 
