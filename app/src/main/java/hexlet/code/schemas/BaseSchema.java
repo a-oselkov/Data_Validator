@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.function.Predicate;
 
 public class BaseSchema {
-    private final String required = "required";
+    public static final String REQUIRED = "required";
     private final Map<String, Predicate> validations = new HashMap<>();
     private boolean isRequired = false;
 
@@ -20,7 +20,7 @@ public class BaseSchema {
 
     public final boolean isValid(Object data) {
         if (!isRequired) {
-            Predicate validation = validations.get(required);
+            Predicate validation = validations.get(REQUIRED);
             if (!validation.test(data)) {
                 return true;
             }

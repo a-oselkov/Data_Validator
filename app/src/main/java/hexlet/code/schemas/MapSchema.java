@@ -5,12 +5,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.Map;
 
 public class MapSchema extends BaseSchema {
-    private final String required = "required";
-    private final String sizeof = "sizeof";
-    private final String shape = "shape";
+    private static final String SIZEOF = "sizeof";
+    private static final String SHAPE = "shape";
 
     public MapSchema() {
-        addValidation(required, value -> value instanceof Map);
+        addValidation(REQUIRED, value -> value instanceof Map);
     }
 
     public final MapSchema required() {
@@ -20,12 +19,12 @@ public class MapSchema extends BaseSchema {
 
     public final MapSchema sizeof(int size) {
         ObjectMapper mapper = new ObjectMapper();
-        addValidation(sizeof, value -> mapper.convertValue(value, Map.class).size() == size);
+        addValidation(SIZEOF, value -> mapper.convertValue(value, Map.class).size() == size);
         return this;
     }
 
     public final MapSchema shape(Map<String, BaseSchema> map) {
-        addValidation(shape, value -> isShapedMapValid(map, (Map) value));
+        addValidation(SHAPE, value -> isShapedMapValid(map, (Map) value));
         return this;
     }
 

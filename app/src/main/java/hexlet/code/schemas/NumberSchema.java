@@ -1,12 +1,11 @@
 package hexlet.code.schemas;
 
 public class NumberSchema extends BaseSchema {
-    private final String required = "required";
-    private final String positive = "positive";
-    private final String range = "range";
+    private static final String POSITIVE = "positive";
+    private static final String RANGE = "range";
 
     public NumberSchema() {
-        addValidation(required, value -> value instanceof Integer);
+        addValidation(REQUIRED, value -> value instanceof Integer);
     }
 
     public final NumberSchema required() {
@@ -15,12 +14,12 @@ public class NumberSchema extends BaseSchema {
     }
 
     public final NumberSchema positive() {
-        addValidation(positive, value -> value == null || value instanceof Integer && (int) value > 0);
+        addValidation(POSITIVE, value -> value == null || value instanceof Integer && (int) value > 0);
         return this;
     }
 
     public final NumberSchema range(int begin, int end) {
-        addValidation(range, value -> (int) value >= begin && (int) value <= end);
+        addValidation(RANGE, value -> (int) value >= begin && (int) value <= end);
         return this;
     }
 }
