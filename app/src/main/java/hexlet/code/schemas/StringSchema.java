@@ -9,7 +9,7 @@ public class StringSchema extends BaseSchema {
     }
 
     public final StringSchema required() {
-        requiredEnable();
+        super.required();
         return this;
     }
 

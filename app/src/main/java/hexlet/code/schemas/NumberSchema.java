@@ -9,7 +9,7 @@ public class NumberSchema extends BaseSchema {
     }
 
     public final NumberSchema required() {
-        requiredEnable();
+        super.required();
         return this;
     }
 
