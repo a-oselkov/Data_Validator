@@ -8,6 +8,7 @@ public class NumberSchema extends BaseSchema {
         addValidation(REQUIRED, value -> value instanceof Integer);
     }
 
+    @Override
     public final NumberSchema required() {
         super.required();
         return this;

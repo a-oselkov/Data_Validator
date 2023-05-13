@@ -12,6 +12,7 @@ public class MapSchema extends BaseSchema {
         addValidation(REQUIRED, value -> value instanceof Map);
     }
 
+    @Override
     public final MapSchema required() {
         super.required();
         return this;

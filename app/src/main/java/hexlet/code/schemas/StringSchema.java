@@ -8,6 +8,7 @@ public class StringSchema extends BaseSchema {
         addValidation(REQUIRED, value -> value instanceof String && !value.equals(""));
     }
 
+    @Override
     public final StringSchema required() {
         super.required();
         return this;
